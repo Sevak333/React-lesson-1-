@@ -20,23 +20,32 @@ function App() {
     setUsers(temp)
   }
 
+  // const salaryDown = id => {
+  //   let temp = [...users]
+  //   let obj = temp.find(x => x.id == id)
+  //   if (obj.salary - 50000 < 50000) {
+  //     obj.salary = 50000
+  //   } else {
+  //     obj.salary -= 50000
+  //   }
+  //   setUsers(temp)
+  // }
+
   const salaryDown = id => {
-    let temp = [...users]
-    let obj = temp.find(x => x.id == id)
-    if (obj.salary - 50000 < 50000) {
-      obj.salary = 50000
-    } else {
-      obj.salary -= 50000
-    }
-    setUsers(temp)
+    setUsers(users.map(elm =>
+      elm.id != id ? elm : { ...elm, salary: Math.max(elm.salary - 50000, 50000) })
+
+    )
   }
 
-  const deleteUser = id => {
-    let user = users.find(x => x.id == id)
-    setUsers(oldValues => {
-      return oldValues.filter(obj => obj.id !== id)
-    })
-  }
+  // const deleteUser = id => {
+  //   let user = users.find(x => x.id == id)
+  //   setUsers(oldValues => {
+  //     return oldValues.filter(obj => obj.id !== id)
+  //   })
+  // }
+
+  setUsers(users.filter(x => x.id != id))
 
   return <>
     <h1>Hello {count}</h1>
