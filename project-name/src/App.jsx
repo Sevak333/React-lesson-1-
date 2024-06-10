@@ -23,8 +23,8 @@ function App() {
   const salaryDown = id => {
     let temp = [...users]
     let obj = temp.find(x => x.id == id)
-    if(obj.salary - 50000 < 50000){
-    obj.salary = 50000
+    if (obj.salary - 50000 < 50000) {
+      obj.salary = 50000
     } else {
       obj.salary -= 50000
     }
@@ -58,9 +58,9 @@ function App() {
             <td> {us.name} </td>
             <td> {us.salary} </td>
             <td>
-              <button onClick={() => salaryUp(us.id)}>Salary up</button>
-              <button onClick={() => salaryDown(us.id)}>Salary down</button>
-              <button onClick={() => deleteUser(us.id)}>Delete</button>
+              <button className='btn-up' onClick={() => salaryUp(us.id)}>Salary up</button>
+              <button className="btn-down" onClick={() => salaryDown(us.id)}>Salary down</button>
+              <button className="btn-delete" onClick={() => deleteUser(us.id)}>Delete</button>
             </td>
 
           </tr>)
